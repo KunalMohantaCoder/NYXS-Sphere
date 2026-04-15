@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gradient-brand: linear-gradient(135deg, #7C3AED, #EC4899, #F97316);
+  --gradient-purple: linear-gradient(135deg, #7C3AED, #A855F7);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #0B0713; color: #F5F0FF; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2D1F45; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-brand);
+  }
+  .glass {
+    @apply bg-nx-card/70 backdrop-blur-xl border border-nx-border;
+  }
+  .input-field {
+    @apply w-full bg-nx-surface border border-nx-border rounded-xl px-4 py-3 text-nx-text outline-none transition-all duration-200 text-sm placeholder:text-nx-textMuted font-body;
+  }
+  .input-field:focus {
+    @apply border-nx-purple shadow-[0_0_0_3px_rgba(124,58,237,0.15)];
+  }
+  .btn-primary {
+    @apply font-body font-semibold text-sm text-white border-none rounded-xl px-6 py-2.5 cursor-pointer transition-all duration-200;
+    background: var(--gradient-brand);
+  }
+  .btn-primary:hover { @apply -translate-y-0.5; box-shadow: 0 8px 24px rgba(124,58,237,0.35); }
+  .btn-ghost {
+    @apply font-body font-medium text-sm text-nx-textSec border border-nx-border rounded-xl px-6 py-2.5 cursor-pointer bg-transparent transition-all duration-200;
+  }
+  .btn-ghost:hover { @apply border-nx-purple text-nx-text bg-nx-purple/5; }
+  .tag-pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-nx-purple/10 text-nx-purpleLight cursor-pointer transition-all duration-200 border-none font-body;
+  }
+  .tag-pill:hover { @apply bg-nx-purple/20; }
+  .tag-pill.bip {
+    @apply bg-gradient-to-br from-nx-orange/15 to-nx-pink/15 text-nx-orange;
+  }
+  .skill-tag {
+    @apply px-2.5 py-1 rounded-md text-[11px] font-semibold bg-nx-purpleLight/10 text-nx-purpleLight border border-nx-purpleLight/15;
+  }
+  .follow-btn {
+    @apply font-body font-semibold text-[13px] cursor-pointer transition-all duration-200 border-none rounded-[10px] px-5 py-2;
+  }
+  .follow-btn.not-following {
+    background: var(--gradient-brand);
+    @apply text-white;
+  }
+  .follow-btn.not-following:hover { box-shadow: 0 6px 20px rgba(124,58,237,0.3); @apply -translate-y-0.5; }
+  .follow-btn.following {
+    @apply bg-transparent border border-nx-border text-nx-textSec;
+  }
+  .follow-btn.following:hover { @apply border-red-500 text-red-300; }
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes spherePulse { 0%,100% { box-shadow: 0 0 24px rgba(124,58,237,0.4); } 50% { box-shadow: 0 0 36px rgba(124,58,237,0.6), 0 0 60px rgba(168,85,247,0.2); } }
+@keyframes bgShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+.animate-fade-up { animation: fadeInUp 0.4s ease both; }
+.animate-fade { animation: fadeIn 0.3s ease both; }
+.animate-scale { animation: scaleIn 0.3s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+#toast-container {
+  position: fixed;
+  pointer-events: none;
+}
