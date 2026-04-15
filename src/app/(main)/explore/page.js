@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { useState, useEffect, useCallback } from 'react';
 import { postApi, userApi } from '@/lib/api';
 import { showToast } from '@/lib/utils';
