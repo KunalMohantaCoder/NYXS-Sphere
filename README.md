@@ -280,7 +280,7 @@ MIT License — Feel free to use this project for personal or commercial purpose
 
 ## 👨‍💻 Author
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Kunal Mohanta
 
 ---
 
