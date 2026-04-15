@@ -1,5 +1,5 @@
 import './globals.css';
-import { AuthProvider } from '@/context/AuthContext';
+import Providers from '@/components/Providers';
 
 export const metadata = {
   title: 'NYXS Sphere — Where Students Build the Future',
@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="font-body antialiased">
         <div id="toast-container" />
-        <AuthProvider>{children}</AuthProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
